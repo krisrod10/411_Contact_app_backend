@@ -1,24 +1,29 @@
 {
   "name": "contact-app",
   "version": "1.0.0",
-  "description": "A Full Stack MERN App to store and Manage Contacts",
+  "description": "A Full Stack App to store and Manage Contacts",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "Arijit Banerjee",
+  "author": "Kris Rodgers",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "dotenv": "^8.6.0",
-    "express": "^4.17.2",
-    "express-validator": "^6.14.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.14"
+    "mongoose": "^5.10.15"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.6"
   }
 }
